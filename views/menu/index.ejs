@@ -1,0 +1,86 @@
+<%- include('../partials_admin/__head.ejs') %>
+
+    <body>
+        <%- include('../partials_admin/__navbar.ejs') %>
+            <main id="main" class="main">
+
+                <div class="pagetitle">
+                    <h1>Menu</h1>
+                    <nav>
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="/superusers">Home</a></li>
+                            <li class="breadcrumb-item active">Data Menu</li>
+                        </ol>
+                    </nav>
+                </div><!-- End Page Title -->
+
+                <section class="section dashboard">
+                    <div class="container mt-5">
+                        <%- include('../partials_admin/__messagess.ejs') %>
+                            <div class="row">
+                                <div class="col">
+                                    <a href="/menu/create" class="btn btn-sm btn-success">Tambah</a>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">Gambar</th>
+                                                <th scope="col">Nama Menu</th>
+                                                <th scope="col">Kategori</th>
+                                                <th scope="col">Komposisi</th>
+                                                <th scope="col">Nama Outlet</th>
+                                                <th scope="col">Harga</th>
+                                                <th scope="col">Stock</th>
+                                                <th colspan="2" scope="col">Aksi</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <% for(var i=0; i < data.length; i++){ %>
+                                                <tr>
+                                                    <th scope="row">
+                                                        <%= (i+1) %>
+                                                    </th>
+                                                    <td>
+                                                        <img src="/images/menu/<%= data[i].gambar_menu %>"
+                                                            height="100" width="150">
+                                                    </td>
+                                                    <td>
+                                                        <%= data[i].nama_menu %>
+                                                    </td>
+                                                    <td>
+                                                        <%= data[i].nama_kategori %>
+                                                    </td>
+                                                    <td>
+                                                        <%= data[i].komposisi_menu %>
+                                                    </td>
+                                                    <td>
+                                                        <%= data[i].nama_outlet %>
+                                                    </td>
+                                                    <td>
+                                                        <%= data[i].harga_menu %>
+                                                    </td>
+                                                    <td>
+                                                        <%= data[i].stock %>
+                                                    </td>
+                                                    <td>
+                                                        <a href="/menu/edit/<%= data[i].id_menu %>"
+                                                            class="btn btn-sm btn-warning">Edit</a>
+                                                        <a href="/menu/delete/<%= data[i].id_menu %>"
+                                                            class="btn btn-sm btn-danger">Delete</a>
+                                                    </td>
+                                                </tr>
+                                                <%} %>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                    </div>
+
+
+
+                </section>
+
+            </main><!-- End #main -->
+
+
+            <%- include('../partials_admin/__footer.ejs') %>

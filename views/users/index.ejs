@@ -1,0 +1,144 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HokBen Kw</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css"> <!-- Tautan ke file CSS -->
+
+<%- include('../partials/__style.ejs') %>
+
+
+
+
+</head>
+<body>
+    <img src="images/nav_login.png" alt="Gambar Atas" class="nav-image">
+    <button class="login-button">
+        <%= email %>
+    </button>
+    <button class="icon-button" style="margin-right: 90px;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+            class="bi bi-person-fill login-icon" viewBox="0 0 16 16">
+            <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+        </svg>
+    </button>
+
+    <%- include('../partials/__navbar.ejs') %>
+
+    <!-- Photo Section -->
+    <img src="images/gambar_samping1.png" alt="Photo 1" class="photo left">
+    <section class="photo-section">
+        <img src="images/sponsor1.png" alt="Photo 2" class="photo center" id="center-photo">
+    </section>
+    <img src="images/gambar_samping2.png" alt="Photo 3" class="photo right">
+
+    <!-- Rekomendasi Section -->
+    <section class="rekomendasi-section">
+        <h2 class="rekomendasi-title">REKOMENDASI</h2>
+        <div class="rekomendasi-cards">
+            <div class="card">
+                <img src="images/rek1.png" alt="Product 1" class="card-image">
+                <div class="keterangan">
+                    <p><strong>HOKA HEMAT 1</strong></p>
+                    <p>お得なセット</p>
+                    <p>Rp. 27.500</p>
+                </div>
+                <div class="details">
+                    <p style="color: #d91319; text-decoration: underline;">Detail</p>
+                    <button class="pesan-button">+ Pesan</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/rek2.png" alt="Product 2" class="card-image">
+                <div class="keterangan">
+                    <p><strong>HOKA HEMAT 3</strong></p>
+                    <p>お得なセット</p>
+                    <p>Rp. 27.500</p>
+                </div>
+                <div class="details">
+                    <p style="color: #d91319; text-decoration: underline;">Detail</p>
+                    <button class="pesan-button">+ Pesan</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/rek3.png" alt="Product 3" class="card-image">
+                <div class="keterangan">
+                    <p><strong>PAKET C</strong></p>
+                    <p>C セット</p>
+                    <p>Rp. 56.000</p>
+                </div>
+                <div class="details">
+                    <p style="color: #d91319; text-decoration: underline;">Detail</p>
+                    <button class="pesan-button">+ Pesan</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/rek4.png" alt="Product 4" class="card-image">
+                <div class="keterangan">
+                    <p><strong>SIMPLE SET CHICKEN TERIYAKI 1</strong></p>
+                    <p>シンプルセット照り焼き１</p>
+                    <p>Rp. 41.500</p>
+                </div>
+                <div class="details">
+                    <p style="color: #d91319; text-decoration: underline;">Detail</p>
+                    <button class="pesan-button">+ Pesan</button>
+                </div>
+            </div>
+            <div class="card">
+                <img src="images/rek5.png" alt="Product 5" class="card-image">
+                <div class="keterangan">
+                    <p><strong>HOKA HEMAT 2</strong></p>
+                    <p>お得なセット</p>
+                    <p>Rp. 27.500</p>
+                </div>
+                <div class="details">
+                    <p style="color: #d91319; text-decoration: underline;">Detail</p>
+                    <button class="pesan-button">+ Pesan</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Informasi Section -->
+    <section class="informasi-section">
+        <div class="informasi-content">
+            <!-- Foto Jam -->
+            <img src="images/jam.png" alt="Foto Jam" class="foto-jam">
+
+            <!-- Kalimat "Kami Pastikan" -->
+            <p class="info-text-1">Kami Pastikan</p>
+
+            <!-- Kalimat "Produk akan terkirim tepat Waktu" -->
+            <p class="info-text-2">Produk akan terkirim tepat Waktu</p>
+
+            <!-- Kalimat "Jika Anda mengadakan rapat..." -->
+            <p class="info-text-3">Jika Anda mengadakan rapat, bekerja larut malam dan perlu dorongan ekstra. Beri tahu
+                kami dan kami akan berada di sana.</p>
+
+            <!-- Tiga Elemen dalam Satu Baris -->
+            <div class="inline-elements">
+                <button class="order-btn-2">Pesan Sekarang</button>
+                <p class="info-text-4">ATAU</p>
+                <img src="images/hokben_delivery.png" alt="Foto Hokben deliver" class="hokben-deliver">
+            </div>
+        </div>
+    </section>
+
+    <%- include('../partials/__modal_checkout.ejs') %>/
+
+    <%- include('../partials/__footer.ejs') %>
+
+
+    
+    <script src="js/script.js"></script> <!-- Tautan ke file JavaScript -->
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+</script>
+
+<%- include('../partials/__script.ejs') %>/
+</html>

@@ -1,0 +1,82 @@
+<%- include('../partials_admin/__head.ejs') %>
+
+<body>
+    <%- include('../partials_admin/__navbar.ejs') %>
+    <main id="main" class="main">
+
+        <div class="pagetitle">
+            <h1>Dashboard</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/superusers">Home</a></li>
+                    <li class="breadcrumb-item active"><a href="/menu">Data Menu</a></li>
+                    <li class="breadcrumb-item active">Edit Menu</li>
+                </ol>
+            </nav>
+        </div><!-- End Page Title -->
+
+        <section class="section dashboard">
+
+            <div class="container">
+                <h1 class="text-center mb-5">Edit Data Barang</h1>
+                <form action="/menu/update/<%= data.id_menu %>" method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Foto Menu</label>
+                        <input type="file" class="form-control" name="gambar_menu">
+                    </div>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama</label>
+                        <input type="text" class="form-control" name="nama_menu" value="<%= data.nama_menu %>" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Merk</label>
+                        <input type="text" class="form-control" name="komposisi_menu" value="<%= data.komposisi_menu %>"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Kategori</label>
+                        <select class="form-select" aria-label="Pilih Tingkat Keahlian" name="id_kategori" required>
+                            <option value="<%= data.id_kategori %>">
+                                <%= data.nama_kategori %>
+                            </option>
+                            <% for(var i=0; i < data_kategori.length; i++){ %>
+                            <option value="<%= data_kategori[i].id_kategori %>">
+                                <%= data_kategori[i].nama_kategori %>
+                            </option>
+                            <% } %>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Outlet</label>
+                        <select class="form-select" aria-label="Pilih Tingkat Keahlian" name="id_outlet" required>
+                            <option value="<%= data.id_outlet %>">
+                                <%= data.nama_outlet %>
+                            </option>
+                            <% for(var i=0; i < data_outlet.length; i++){ %>
+                            <option value="<%= data_outlet[i].id_outlet %>">
+                                <%= data_outlet[i].nama_outlet %>
+                            </option>
+                            <% } %>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Stock</label>
+                        <input type="text" class="form-control" name="stock" value="<%= data.stock %>"
+                            required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Harga</label>
+                        <input type="text" class="form-control" name="harga_menu" value="<%= data.harga_menu %>"
+                            required>
+                    </div>
+
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-sm btn-success">Simpan</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+    </main><!-- End #main -->
+
+    <%- include('../partials_admin/__footer.ejs') %>

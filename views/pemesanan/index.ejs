@@ -1,0 +1,79 @@
+<%- include('../partials_admin/__head.ejs') %>
+
+<body>
+    <%- include('../partials_admin/__navbar.ejs') %>
+    <main id="main" class="main">
+
+        <div class="pagetitle">
+            <h1>Data Pembayaran</h1>
+            <nav>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/superusers">Home</a></li>
+                    <li class="breadcrumb-item active">Data Pembayaran</li>
+                </ol>
+            </nav>
+        </div>
+        <section class="section dashboard">
+            <div class="container">
+                <div class="row">
+                    <%- include('../partials_admin/__messagess.ejs') %>
+                    <div class="col">
+                        <% if (data.length > 0) { %>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th scope="col">ID Pembayaran</th>
+                                    <th scope="col">Nama Pengguna</th>
+                                    <th scope="col">Nama Menu</th>
+                                    <th scope="col">Status Pembayaran</th>
+                                    <th scope="col">Status Pemesanan</th>
+                                    <th scope="col">Total</th>
+                                    <th scope="col">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% data.forEach(function(item) { %>
+                                <tr>
+                                    <td><%= item.id_pembayaran %></td>
+                                    <td><%= item.nama %></td>
+                                    <td><%= item.nama_menu %></td>
+                                    <td>
+                                        <select name="status_pembayaran">
+                                          <option value="order" <%= item.status_pembayaran === 'order' ? 'selected' : '' %>>Order</option>
+                                          <option value="done" <%= item.status_pembayaran === 'done' ? 'selected' : '' %>>Done</option>
+                                        </select>
+                                      </td>
+                                      <td>
+                                        <select name="status_pemesanan">
+                                          <option value="diterima" <%= item.status_pemesanan === 'diterima' ? 'selected' : '' %>>Diterima</option>
+                                          <option value="dimasak" <%= item.status_pemesanan === 'dimasak' ? 'selected' : '' %>>Dimasak</option>
+                                          <option value="kurir" <%= item.status_pemesanan === 'kurir' ? 'selected' : '' %>>Kurir</option>
+                                          <option value="perjalanan" <%= item.status_pemesanan === 'perjalanan' ? 'selected' : '' %>>Perjalanan</option>
+                                          <option value="hampir-tiba" <%= item.status_pemesanan === 'hampir-tiba' ? 'selected' : '' %>>Hampir-Tiba</option>
+                                          <option value="tiba" <%= item.status_pemesanan === 'tiba' ? 'selected' : '' %>>Tiba</option>
+                                        </select>
+                                      </td>
+                                    <td><%= item.jumlah %></td>
+                                    <td>
+                                        <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+                                        <a href="/pembayaran/delete/<%= item.id_pembayaran %>"
+                                            class="btn btn-sm btn-danger">Delete</a>
+                                    </td>
+                                </tr>
+                                <% }); %>
+                            </tbody>
+                        </table>
+                        <form action="/pembayaran/deleteAll" method="POST" class="mt-3">
+                            <button type="submit" class="btn btn-danger">Delete All</button>
+                        </form>
+                        <% } else { %>
+                        <p>Tidak ada data pembayaran.</p>
+                        <% } %>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main><!-- End #main -->
+
+    <%- include('../partials_admin/__footer.ejs') %>
+</body>
